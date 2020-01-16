@@ -1,0 +1,64 @@
+{
+    "configurations": [
+        {
+            "name": "!!! WARNING !!! AUTO-GENERATED FILE, PLEASE DO NOT MODIFY IT AND USE https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags"
+        },
+        {
+            "name": "Linux",
+            "includePath": [
+                "/home/matheusgomes/Documents/PlatformIO/Projects/190927-170204-esp8266-rtos-sdk-blink/include",
+                "/home/matheusgomes/Documents/PlatformIO/Projects/190927-170204-esp8266-rtos-sdk-blink/src",
+                "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/include",
+                "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/extra_include",
+                "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/driver_lib/include",
+                "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/include/espressif",
+                "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/include/lwip",
+                "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/include/lwip/ipv4",
+                "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/include/lwip/ipv6",
+                "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/include/nopoll",
+                "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/include/spiffs",
+                "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/include/ssl",
+                "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/include/json",
+                "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/include/openssl",
+                "/home/matheusgomes/.platformio/packages/tool-unity",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "/home/matheusgomes/Documents/PlatformIO/Projects/190927-170204-esp8266-rtos-sdk-blink/include",
+                    "/home/matheusgomes/Documents/PlatformIO/Projects/190927-170204-esp8266-rtos-sdk-blink/src",
+                    "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/include",
+                    "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/extra_include",
+                    "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/driver_lib/include",
+                    "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/include/espressif",
+                    "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/include/lwip",
+                    "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/include/lwip/ipv4",
+                    "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/include/lwip/ipv6",
+                    "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/include/nopoll",
+                    "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/include/spiffs",
+                    "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/include/ssl",
+                    "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/include/json",
+                    "/home/matheusgomes/.platformio/packages/framework-esp8266-rtos-sdk/include/openssl",
+                    "/home/matheusgomes/.platformio/packages/tool-unity",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=40003",
+                "ESP8266",
+                "ARDUINO_ARCH_ESP8266",
+                "ARDUINO_ESP8266_NODEMCU",
+                "F_CPU=80000000L",
+                "__ets__",
+                "ICACHE_FLASH",
+                ""
+            ],
+            "intelliSenseMode": "clang-x64",
+            "cStandard": "c99",
+            "cppStandard": "c++11",
+            "compilerPath": "\"/home/matheusgomes/.platformio/packages/toolchain-xtensa@1.40802.0/bin/xtensa-lx106-elf-gcc\" -mlongcalls -mtext-section-literals"
+        }
+    ],
+    "version": 4
+}

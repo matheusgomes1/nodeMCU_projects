@@ -1,5 +1,5 @@
 #include "Arduino.h"
-
+#include <user_interface.h>;
 #include <Ultrasonic.h>
 #include <ESP8266WiFi.h>
 #include <WiFiUdp.h>
@@ -30,11 +30,19 @@ WiFiUDP udp;
 WiFiClient client;
 
 Ultrasonic ultrasonic(TRIGGER_PIN, ECHO_PIN);
+bool cheio = false;
 
 int getNTPhour();
 void sendNTPpacket(IPAddress &address);
 void send (char *message);
 void reestabelecer_conexao();
+
+// os_timer_t tmr0;
+
+// void ICACHE_RAM_ATTR send_cheio(void*z)//Sub rotina ISR do Timer sera acessada a cada 1 Segundo e mudara o status do LED.
+// {
+//   Serial.println("\n\nCheio");
+// }
 
 void setup()
 {
@@ -116,14 +124,20 @@ void loop()
 
   float cmMsec;
   long microsec = ultrasonic.timing();
-
   cmMsec = ultrasonic.convert(microsec, Ultrasonic::CM);
   Serial.print("\n\nCM: ");
   Serial.print(cmMsec);
 
-  if (cmMsec < 10)
+  char data[5];
+  send(dtostrf(cmMsec,4,2,data));
+  
+  if (cmMsec != 0 && cmMsec < 25 && !cheio)
   {
-    Serial.println("\n\nCheio");
+    // os_timer_setfn(&tmr0, send_cheio, NULL); //Indica ao Timer qual sera sua Sub rotina.
+    // os_timer_arm(&tmr0, 5000, false); 
+    delay(60000);
+    Serial.print("Cheio\n");
+    cheio = true;
     send("cheio");
   }
 
@@ -139,14 +153,21 @@ void loop()
       send("alert");
     }
   }
+
+  if (cheio) {
+    send("cheio");
+  }
 }
 
 void send (char msg[])
 {
   Serial.println("sending data to server");
   if (client.connected()) {
+    Serial.print("send sucessful\n");
+    cheio = false;
     client.println(msg);
   } else {
+    Serial.print("failed\n");
     global_attempts ++;
   }
 }

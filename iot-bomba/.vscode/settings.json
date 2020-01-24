@@ -2,5 +2,8 @@
     "terminal.integrated.env.linux": {
         "PATH": "/home/matheusgomes/.platformio/penv/bin:/home/matheusgomes/.platformio/penv:/home/matheusgomes/.npm-global/bin/:/home/matheusgomes/.local/bin:/home/matheusgomes/.npm-global/bin/:/home/matheusgomes/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/matheusgomes/android-sdk-linux:/home/matheusgomes/android-sdk-linux/tools/bin:/home/matheusgomes/android-sdk-linux/platform-tools:/home/matheusgomes/android-sdk-linux/emulator:/home/matheusgomes/android-sdk-linux/build-tools",
         "PLATFORMIO_CALLER": "vscode"
+    },
+    "files.associations": {
+        "random": "cpp"
     }
 }

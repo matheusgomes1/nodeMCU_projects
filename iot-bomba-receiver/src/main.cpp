@@ -108,6 +108,7 @@ void loop() {
     return;
   } 
   
+  digitalWrite(LED_WIFI, HIGH);
   Serial.println("new client");
   client.setTimeout(1000); // default is 1000
   messageRcv = recebe_msg();
@@ -130,6 +131,8 @@ void loop() {
     digitalWrite(MOTOR, HIGH);
     digitalWrite(LED_NIVEL, LOW);
   }
+  delay(150);
+  digitalWrite(LED_WIFI, LOW);
 }
 
 String recebe_msg() {

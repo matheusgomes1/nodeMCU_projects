@@ -31,6 +31,7 @@ WiFiClient client;
 
 Ultrasonic ultrasonic(TRIGGER_PIN, ECHO_PIN);
 bool cheio = false;
+unsigned long previousMillis = 0;
 
 int getNTPhour();
 void sendNTPpacket(IPAddress &address);
@@ -130,15 +131,31 @@ void loop()
 
   char data[5];
   send(dtostrf(cmMsec,4,2,data));
-  
+
+  if (!client.connect(receiverIP, 17)) {
+    Serial.println("connection failed");
+    global_attempts ++;
+    delay(500);
+    return;
+  }
+
+  unsigned long currMillis = millis();
+  // A cada 1 dia resetar
+  if (currMillis > 86400000) {
+    ESP.reset();
+  }
+
   if (cmMsec != 0 && cmMsec < 25 && !cheio)
   {
-    // os_timer_setfn(&tmr0, send_cheio, NULL); //Indica ao Timer qual sera sua Sub rotina.
-    // os_timer_arm(&tmr0, 5000, false); 
-    delay(60000);
-    Serial.print("Cheio\n");
-    cheio = true;
-    send("cheio");
+    if (previousMillis == 0) {
+      previousMillis = millis();
+    }
+    if (currMillis - previousMillis > 80000) {
+      Serial.print("Cheio\n");
+      cheio = true;
+      send("cheio");
+      previousMillis = 0;
+    }
   }
 
   if (cmMsec > 50)
@@ -154,9 +171,6 @@ void loop()
     }
   }
 
-  if (cheio) {
-    send("cheio");
-  }
 }
 
 void send (char msg[])
@@ -166,6 +180,7 @@ void send (char msg[])
     Serial.print("send sucessful\n");
     cheio = false;
     client.println(msg);
+    client.flush();
   } else {
     Serial.print("failed\n");
     global_attempts ++;

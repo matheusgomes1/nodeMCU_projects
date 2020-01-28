@@ -103,8 +103,11 @@ void loop() {
   
   client = server.available();
   if (!client) {
+    digitalWrite(LED_NIVEL, HIGH);
     Serial.println("cliente offline");
-    delay(200);
+    delay(100);
+    digitalWrite(LED_NIVEL, LOW);
+    delay(100);
     return;
   } 
   
@@ -131,8 +134,8 @@ void loop() {
     digitalWrite(MOTOR, HIGH);
     digitalWrite(LED_NIVEL, LOW);
   }
-  delay(150);
   digitalWrite(LED_WIFI, LOW);
+  delay(50);
 }
 
 String recebe_msg() {
